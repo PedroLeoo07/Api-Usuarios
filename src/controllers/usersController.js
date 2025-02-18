@@ -12,7 +12,7 @@ const router = {
     },
 
     getUserById: (req, res) =>{
-        const {id}
+        
     }
 }
 
