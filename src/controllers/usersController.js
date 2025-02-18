@@ -12,7 +12,6 @@ const router = {
     },
 
     getUserById: (req, res) =>{
-        
     }
 }
 
