@@ -32,4 +32,14 @@ const router = {
             res.status(404).json({message: "erro ao buscar todos os usuários", error});
         }
     },
+
+    getUserById: (req, res) => {
+        try {
+            const id = req.params.id;
+            res.status(200).json(listaUsuarios.getUserById(id));
+        } catch (error) {
+            res.status(404).json({ message: "Id do usuário não encontrado", error });
+        }
+    },
+    
 }
