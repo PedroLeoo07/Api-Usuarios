@@ -17,8 +17,19 @@ const router = {
                 throw new Error("Campos obrigatórios não informados!!");
             }
             const usuario = new User(name, email, idade, password);
+            listaUsuarios.addUser(usuario);
+            res.status(201).jaon({ message: "Usuário criado com sucesso!" });
         } catch (error){
-            res.status(400).json({ error: "Erro ao criar novo usuário" });
+            res.status(400).json({ error: "Erro ao criar novo usuário", error});
         }
-    }
+    },
+
+    getAllUsers: (req,res) => {
+        try{
+            const users = listaUsuarios.getAllUsers();
+            res.status(200).json(users);
+        } catch (error){
+            res.status(404).json({message: "erro ao buscar todos os usuários", error});
+        }
+    },
 }
