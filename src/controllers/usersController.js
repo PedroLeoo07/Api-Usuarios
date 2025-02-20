@@ -1,35 +1,24 @@
 const User = require("../models/User");
 const UserList = require("../models/UserList");
 
-const Lista = new UserList();
+const listaUsuarios = new UserList();
+const user1 = new User("Leonardo Oliveira", "leonardo.oliveira@gmail.com", 25, "Leo1234@");
+listaUsuarios.addUser(user1);
 
-Lista.addUSer(new User("Leonardo", "leonardo@gmail.com", 17));
-Lista.addUSer(new User("Luiz", "luiz@gmail.com", 16));
-Lista.addUSer(new User("Thiago", "Thiago@gmail.com", 25));
-Lista.addUSer(new User("Marcello", "marcello@gmail.com", 35));
-
+listaUsuarios.addUser(new User("João da Silva", "joao.silva@gmail.com", 100, "Joao1234@"));
+listaUsuarios.addUser(new User("André Lucca", "lucca@gmail.com", 18, "andre1234@"));
+listaUsuarios.addUser(new User("Maria da Silva", "maria.silva@gmail.com", 20, "maria1234@"));
 
 const router = {
     addUser: (req, res) => {
         try {
-            const { name, email, idade} =  req.body;
-            if(!name || !email || !idade) {
-                throw new Error('Preencha todos os campos pedidos!!');
+            const { name, email, idade, password } = req.body;
+            if(!name || !email || !idade || !password){
+                throw new Error("Campos obrigatórios não informados!!");
             }
-            const usuario = new User (name, email, idade);
-            lista.addUser(usuario);
-            res.status(200).json({message: "Usuário criado com sucesso"});
-        } catch (error) {
-            res.status(400).json({message: "Erro ao criar ao criar o usuário", error});
+            const usuario = new User(name, email, idade, password);
+        } catch (error){
+            res.status(400).json({ error: "Erro ao criar novo usuário" });
         }
-    },
-    
-    getAllUsers: (req, res) =>{
-        res.json(Lista.getAllUsers());
-    },
-
-    getUserById: (req, res) =>{
     }
 }
-
-module.exports = router
