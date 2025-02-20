@@ -41,5 +41,31 @@ const router = {
             res.status(404).json({ message: "Id do usuário não encontrado", error });
         }
     },
-    
-}
+    updateUser: (req, res) => {
+        try{
+            res.status(200).json(listaUsuarios.updateUser(req.params.id, req.body));
+        } catch (error) {
+            res.status(404).json({ message: "Erro ao atualizar o usuário", error: error.message, });
+        }
+    },
+
+    deleteUser: (req, res) => {
+        try{
+            listaUsuarios.deleteUser(req.params.id);
+            res.status(200).json({ message: "Usuário deletado com sucesso!" });
+        } catch (error) {
+            res.status(404).json({ message: "Erro ao deletar o usuário", erro });
+        }
+    },
+
+    deleteUserById: (req, res) => {
+        try{
+            listaUsuarios.deleteUserById(req.params.id);
+            res.status(200).json({ message: "Usuário deletado por id com sucesso!" });
+        } catch (error) {
+            res.status(404).json({ message: "Erro ao deletar o usuário, por id", error });
+        }
+    }
+};
+
+module.exports = router;
