@@ -6,6 +6,6 @@ Essa atividade de back-end é uma API que gerencia usuários, criando, atualizan
 ### 💻 Tecnologias
 - Node.js
 - Express
-- Jaon
+- Json
 - Cors
 
