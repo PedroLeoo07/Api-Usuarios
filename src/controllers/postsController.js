@@ -2,15 +2,14 @@ const Post = require("../models/Post");
 const PostList = require("../models/PostList");
 
 const listaPost = new PostList();
-const post1 = new Post( 34, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROBijYLZKgQSstpANQuRL_h3ntGA17JC6AdA&s", 3400, "55.555" "Football", "5 comments");
-listaPost.addUser(post1);
+const post1 = new Post( "34", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Nc2lo8aZqD40Pi7B5aRikQH1ELPH03Lxew&s", "3400", "55.555", "Futebol", "5 comments");
 
-listaPost.addPost(new Post( 1, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 100, "300.000", "Football", "15 comments"));
-listaPost.addPost(new Post( 2, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 500, "400.000", "Football", "15 comments"));
-listaPost.addPost(new Post( 3, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 700, "700.000", "Football", "15 comments"));
-listaPost.addPost(new Post( 44, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 100, "100.000", "Football", "15 comments"));
-listaPost.addPost(new Post( 77, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 100, "100.000", "Football", "15 comments"));
-listaPost.addPost(new Post( 12345, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 100, "100.000", "Football", "15 comments"));
+listaPost.addPost(new Post( "1", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 100, "300.000", "Football", "15 comments"));
+listaPost.addPost(new Post( "2", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 500, "400.000", "Football", "15 comments"));
+listaPost.addPost(new Post( "3", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 700, "700.000", "Football", "15 comments"));
+listaPost.addPost(new Post( "44", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 100, "100.000", "Football", "15 comments"));
+listaPost.addPost(new Post("77", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 100, "100.000", "Football", "15 comments"));
+listaPost.addPost(new Post( "12345", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKe-WL8XXYVvttO4Zd7Vgu2cGvS2dlNKmGKw&s", 100, "100.000", "Football", "15 comments"));
 
 const router = {
     addPost: (req, res) => {
