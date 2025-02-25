@@ -53,6 +53,14 @@ const router = {
         }
     },
 
+    updatePostById: (req, res) => {
+        try{
+            res.status(200).json(listaPost.updatePostById(req.params.id, req.body));
+        } catch (error) {
+            res.status(404).json({ message: "Erro ao atualizar o post por id", error });
+        }
+    },
+
     deletePost: (req, res) => {
         try{
             listaPost.deletePost(req.params.id);
@@ -70,6 +78,7 @@ const router = {
             res.status(404).json({ message: "Erro ao deletar o post por id", error });
         }
     },
+
     
 };
 
