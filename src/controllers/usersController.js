@@ -10,19 +10,19 @@ listaUsuarios.addUser(new User("André Lucca", "lucca@gmail.com", 18, "andre1234
 listaUsuarios.addUser(new User("Maria da Silva", "maria.silva@gmail.com", 20, "maria1234@"));
 
 const router = {
-    addUser: (req, res) => {
-        try {
-            const { name, email, idade, password } = req.body;
-            if(!name || !email || !idade || !password){
-                throw new Error("Campos obrigatórios não informados!!");
-            }
-            const usuario = new User(name, email, idade, password);
-            listaUsuarios.addUser(usuario);
-            res.status(201).jaon({ message: "Usuário criado com sucesso!" });
-        } catch (error){
-            res.status(400).json({ error: "Erro ao criar novo usuário", error});
-        }
-    },
+  addUsers: (req, res) => {
+    try {
+      const { name, email, idade, password } = req.body;
+      if (!name || !email || !idade || !password) {
+        throw new error("Campos obrigatórios não informados!!");
+      }
+      const novoUsuario = new User(name, email, idade, password);
+      listaUsuarios.addUser(novoUsuario);
+      res.status(201).json({ message: "Usuário criado com sucesso!" });
+    } catch (error) {
+      res.status(400).json({ error: "Erro ao criar novo usuário", error });
+    }
+  },
 
     getAllUsers: (req,res) => {
         try{
@@ -43,9 +43,12 @@ const router = {
     },
     updateUser: (req, res) => {
         try{
-            res.status(200).json(listaUsuarios.updateUser(req.params.id, req.body));
+            res.status(200).json(listaUsuarios.updateUser(req.params.id, req.body))
         } catch (error) {
-            res.status(404).json({ message: "Erro ao atualizar o usuário", error: error.message, });
+            res.status(404).json({
+                message: "Erro ao atualizar",
+                error: error.message,
+            })
         }
     },
 
